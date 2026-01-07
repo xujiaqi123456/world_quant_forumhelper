@@ -1,0 +1,20 @@
+{
+  "manifest_version": 3,
+  "name": "WQ 论坛内容获取 & AI 分析生成工作流",
+  "version": "3.0",
+  "description": "独立窗口版：支持长时间运行和AI分析",
+  "permissions": [
+    "storage" 
+    // 注意：如果是独立窗口，activeTab 权限可能不再适用，但如果是fetch请求则无所谓
+  ],
+  "host_permissions": [
+    "https://support.worldquantbrain.com/*"
+  ],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    // ⚠️ 关键点：这里去掉了 "default_popup": "popup.html"
+    // 去掉后，点击图标才会触发 background 中的事件，而不是直接弹窗
+  }
+}
